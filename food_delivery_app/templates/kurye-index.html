@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Kurye Profil</title>
+    <style>
+        .big-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 5rem;
+        padding-left: 10px;
+        margin-top: 50px;
+        margin-left: 5px;
+        text-align: center;
+    }
+    .profile-info {
+        width: 50%;
+        text-align: left;
+        margin-top: 80px;
+        margin:80px auto 0 auto;
+    }
+    .siparis-info {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <h1 class="big-title">Kurye Profil</h1>
+    <div class="profile-info">
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Kurye Adı</div>
+            Ali Erdem Dönmez
+          </div>
+          <span class="badge bg-primary rounded-pill"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">E-posta</div>
+            happy.moons@gmail.com
+          </div>
+          <span class="badge bg-primary rounded-pill"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Telefon Numarası</div>
+            05531012259
+          </div>
+          <span class="badge bg-primary rounded-pill"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Şifreniz</div>
+              erdem123.
+            </div>
+            <span class="badge bg-primary rounded-pill"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Kurye Kodu</div>
+              3FQ05K71M3C
+            </div>
+            <span class="badge bg-primary rounded-pill"></span>
+        </li>
+      </ol>
+    </div>
+    <div class="siparis-info">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sipariş No.</th>
+                <th scope="col">Sipariş Eden kişi</th>
+                <th scope="col">Ürün</th>
+                <th scope="col">Adres</th>
+                <th scope="col">Telefon Numarası</th>
+                <th scope="col">Siparişin Durumu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Hamburger</td>
+                <td>X Sok. A apt. No:1 Daire:1 İstanbul/Beşiktaş</td>
+                <td>05531012259</td>
+                <td>
+                    <form action="">
+                    <button class="btn btn-primary" type="submit" style="margin-top: 10px;">Tamamla</button>
+                    </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body
+</html>

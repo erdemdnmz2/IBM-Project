@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Raleway:wght@100&display=swap" rel="stylesheet"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Restoran Kayıt</title>
+    <style>
+        .big-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 5rem;
+        padding-left: 10px;
+        margin-top: 50px;
+        margin-left: 5px;
+        text-align: center;
+    }
+    .movie-name{
+        width: 20%;
+    }
+    .form {
+        width: 50%;
+        text-align: left;
+        margin-top: 80px;
+        margin:80px auto 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <h1 class="big-title">Adres Ekle</h1>
+    <div class="form">
+    <form action="/adres_ekle_kayıt" method="post">
+        <div class="col-md-12">
+            <label for="inputAddress" class="form-label">Adres Başlığı</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Adres başlığı giriniz" name="baslık">
+        </div>
+        <div class="col-md-6" style="margin-top: 10px;">
+            <select class="form-select" aria-label="Default select example" id="firstSelect" onchange="updateSecondMenu()" name="il">
+                <option selected>Şehir Seçiniz</option>
+                <option value="İstanbul">İstanbul</option>
+                <option value="Balıkesir">Balıkesir</option>
+                <option value="İzmir">İzmir</option>
+                <option value="Ankara">Ankara</option>
+              </select>
+        </div>
+            <div class="col-md-6">
+                <select class="form-select" aria-label="Default select example" id="secondSelect" name="ilce">
+                </select>
+                  <script>
+                    function updateSecondMenu() {
+                        var firstSelect = document.getElementById("firstSelect");
+                        var secondSelect = document.getElementById("secondSelect");
+                        var selectedOptionValue = firstSelect.value;
+            
+                        // İkinci menüyü temizle
+                        secondSelect.innerHTML = "";
+            
+                        // Seçilen seçeneğe göre ikinci menüyü doldur
+                        if (selectedOptionValue === "İstanbul") {
+                            var option1 = document.createElement("option");
+                            option1.value = "Beşiktas";
+                            option1.textContent = "Beşiktaş";
+                            secondSelect.appendChild(option1);
+            
+                            var option2 = document.createElement("option");
+                            option2.value = "Üsküdar";
+                            option2.textContent = "Üsküdar";
+                            secondSelect.appendChild(option2);
+                        } else if (selectedOptionValue === "Balıkesir") {
+                            var option3 = document.createElement("option");
+                            option3.value = "Bandırma";
+                            option3.textContent = "Bandırma";
+                            secondSelect.appendChild(option3);
+            
+                            var option4 = document.createElement("option");
+                            option4.value = "Erdek";
+                            option4.textContent = "Erdek";
+                            secondSelect.appendChild(option4);
+                        } else if (selectedOptionValue === "İzmir") {
+                            var option5 = document.createElement("option");
+                            option5.value = "Bornova";
+                            option5.textContent = "Bornova";
+                            secondSelect.appendChild(option5);
+            
+                            var option6 = document.createElement("option");
+                            option6.value = "Alsancak";
+                            option6.textContent = "Alsancak";
+                            secondSelect.appendChild(option6);
+                        } else if (selectedOptionValue === "Ankara") {
+                            var option7 = document.createElement("option");
+                            option7.value = "Çankaya";
+                            option7.textContent = "Çankaya";
+                            secondSelect.appendChild(option7);
+            
+                            var option8 = document.createElement("option");
+                            option8.value = "Kızılay";
+                            option8.textContent = "Kızılay";
+                            secondSelect.appendChild(option8);
+                        }
+                    }
+            
+                    // Sayfa yüklendiğinde ikinci menüyü güncelle
+                    updateSecondMenu();
+                    function sendToDatabase() {
+                        var firstSelect = document.getElementById("firstSelect");
+                        var secondSelect = document.getElementById("secondSelect");
+                        var selectedFirstOptionValue = firstSelect.value;
+                        var selectedSecondOptionValue = secondSelect.value;
+
+                        // AJAX isteği ile veriyi Flask uygulamasına gönderelim
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", "/save_to_database", true);
+                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                console.log("Veri veritabanına kaydedildi.");
+                            }
+                        };
+                        xhr.send("selected_first_option=" + selectedFirstOptionValue + "&selected_second_option=" + selectedSecondOptionValue);
+                    }
+
+                    // Sayfa yüklendiğinde ikinci menüyü güncelle
+                    updateSecondMenu();
+                </script>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Adres Açıklaması</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Örn: X Sok. A apt. No:1 Daire:1" name="acıklama"></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-secondary">Ekle</button>
+            </div>
+    </form>
+    </div>
+</body>
+</html>

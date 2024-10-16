@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Ürünü Güncelle</title>
+    <style>
+        .big-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 5rem;
+        padding-left: 10px;
+        margin-top: 50px;
+        margin-left: 5px;
+        text-align: center;
+    }
+    .movie-name{
+        width: 20%;
+    }
+    .form {
+        width: 50%;
+        text-align: left;
+        margin-top: 80px;
+        margin:80px auto 0 auto;
+        padding-bottom: 100px;
+    }
+    .adres {
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <h1 class="big-title">Ürün Ekle</h1>
+    <div class="form">
+        <form action="/urun_guncelle/{{ urun.id }}", method="post">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Yeni ürün adı</label>
+            <input class="form-control" type="text" placeholder="Ürün adı giriniz" aria-label="default input example" name="urun-ad">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Yeni ürün Açıklaması</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Açıklama giriniz" name="urun-acıklama"></textarea>
+      </div>
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">₺</span>
+            <input type="text" class="form-control" placeholder="Yeni fiyat giriniz örn: 10.50" aria-label="Username" aria-describedby="addon-wrapping" name="urun-fiyat">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Img Source</label>
+            <input class="form-control" type="text" placeholder="Görsel linki giriniz" aria-label="default input example" name="urun-img">
+        </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Ürünü Güncelle</button>
+          </div>
+        </form>
+    </div>
+</body>
+</html>
